@@ -1,0 +1,11 @@
+venv/
+__pycache__/
+*.pyc
+.env
+
+# local data
+app/data/chroma_db/
+app/data/uploads/
+
+# OS junk
+.DS_Store
