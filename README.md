@@ -1,119 +1,112 @@
 # 📚 Study Buddy
 
-> An AI-powered learning platform that transforms study material into an interactive learning experience using Retrieval-Augmented Generation (RAG).
+> **An AI-powered learning platform that transforms study material into an interactive learning experience using Retrieval-Augmented Generation (RAG).**
+
+Study Buddy allows students to upload study material and interact with it through multiple AI-powered learning agents. Instead of reading hundreds of pages manually, students can ask questions, generate notes, test their knowledge, create study plans, and receive contextual assistance from an AI study companion.
 
 ---
 
-## 🚀 Overview
+# ✨ Features
 
-Study Buddy enables students to upload their study material and instantly interact with it through multiple AI-powered learning agents.
+## 👨‍🏫 AI Teacher
 
-Instead of reading hundreds of pages manually, students can:
+Ask questions directly from uploaded study material.
 
-- 👨‍🏫 Ask questions from the uploaded document
-- 📝 Generate concise revision notes
-- ❓ Take AI-generated quizzes
-- 📅 Create personalized study plans
-- 🤖 Chat with a persistent AI study assistant
+**Features**
 
-All responses are grounded in the uploaded document using a Retrieval-Augmented Generation (RAG) pipeline.
-
----
-
-## ✨ Features
-
-### 👨‍🏫 AI Teacher
-
-- Ask questions from uploaded PDFs
-- Context-aware answers
-- Source citations
-- Conversation history
+* Retrieval-Augmented Generation (RAG)
+* Context-aware responses
+* Source-grounded answers
+* Multi-turn conversations
 
 ---
 
-### 📝 AI Notes
+## 📝 AI Notes Generator
 
-Generate structured notes including:
+Generate concise revision notes from uploaded documents.
 
-- Key concepts
-- Definitions
-- Important points
-- Revision summaries
+**Features**
 
----
-
-### ❓ AI Quiz
-
-Automatically generates multiple-choice quizzes featuring:
-
-- Easy, Medium & Hard questions
-- Automatic scoring
-- Answer review
-- Instant feedback
+* Structured markdown notes
+* Key concepts
+* Definitions
+* Important points
+* Quick revision summaries
 
 ---
 
-### 📅 Study Planner
+## ❓ AI Quiz Generator
 
-Generate personalized study schedules based on:
+Automatically generates quizzes from the uploaded study material.
 
-- Selected topic
-- Number of study days
-- Retrieved learning material
+**Features**
+
+* Multiple-choice questions
+* Easy / Medium / Hard difficulty
+* Automatic scoring
+* Answer review
+* Instant feedback
+
+---
+
+## 📅 AI Study Planner
+
+Generate personalized study schedules.
 
 Each day includes:
 
-- Topics
-- Practice tasks
-- Revision tasks
-- Estimated study time
+* Topics to study
+* Practice tasks
+* Revision tasks
+* Estimated study time
 
 ---
 
-### 🤖 Buddy
+## 🤖 Buddy
 
-A persistent AI assistant available across all learning pages.
+A persistent AI assistant available throughout the application.
 
 Buddy can:
 
-- Answer follow-up questions
-- Maintain conversation history
-- Assist while studying
-- Provide contextual guidance
+* Answer follow-up questions
+* Explain concepts
+* Maintain conversation context
+* Assist while studying
 
 ---
 
-## 🧠 Tech Stack
+# 🧠 Tech Stack
 
-### Frontend
+## Frontend
 
-- React
-- Vite
-- Tailwind CSS
-- React Router
+* React
+* Vite
+* Tailwind CSS
+* React Router
 
-### Backend
+## Backend
 
-- FastAPI
-- Uvicorn
-- Pydantic
+* FastAPI
+* Uvicorn
+* Pydantic
 
-### AI
+## AI Stack
 
-- Together AI (Llama)
-- Retrieval-Augmented Generation (RAG)
+* Ollama
+* Gemma (Local LLM)
+* Retrieval-Augmented Generation (RAG)
 
-### Vector Database
+## Vector Database
 
-- ChromaDB
+* ChromaDB
 
-### PDF Processing
+## PDF Processing
 
-- PyMuPDF
+* PyMuPDF
 
 ---
 
-## 🏗 Architecture
+# 🏗 System Architecture
 
 ```
                     PDF Upload
@@ -125,123 +118,213 @@ Buddy can:
                     Chunking
                          │
                          ▼
-                 Embedding Generation
+                Embedding Generation
                          │
                          ▼
                     ChromaDB
                          │
-        ┌────────────────┼────────────────┐
-        │                │                │
-        ▼                ▼                ▼
-    Teacher          Notes            Planner
-        │
-        ▼
-      Quiz
-        │
-        ▼
+      ┌──────────────────┼──────────────────┐
+      │                  │                  │
+      ▼                  ▼                  ▼
+ AI Teacher         AI Notes         AI Planner
+      │
+      ▼
+  AI Quiz Generator
+      │
+      ▼
       Buddy
 ```
 
 ---
 
-## 📂 Project Structure
+# 📂 Project Structure
 
 ```
 study-buddy/
 
 ├── backend/
+│
 │   ├── app/
-│   │   ├── api/
-│   │   ├── services/
-│   │   ├── rag/
-│   │   ├── models/
-│   │   └── core/
 │   │
-│   ├── requirements.txt
+│   ├── api/
+│   ├── core/
+│   ├── rag/
+│   ├── services/
+│   │
 │   └── main.py
 │
 ├── frontend/
-│   ├── src/
-│   │   ├── components/
-│   │   ├── pages/
-│   │   ├── layout/
-│   │   ├── context/
-│   │   └── api/
-│   │
-│   ├── package.json
-│   └── vite.config.js
 │
-└── README.md
+│   ├── src/
+│   │
+│   ├── components/
+│   ├── context/
+│   ├── layout/
+│   ├── pages/
+│   └── api/
+│
+├── README.md
+└── .gitignore
 ```
 
 ---
 
-## ⚙ Installation
+# 🚀 Getting Started
 
-### Clone the repository
+## 1. Clone the repository
 
 ```bash
-git clone https://github.com/YOUR_USERNAME/study-buddy.git
+git clone https://github.com/devesh2395/study-buddy.git
 
 cd study-buddy
 ```
 
 ---
 
-## Backend
+# 🦙 Install Ollama
+
+Download Ollama from:
+
+https://ollama.com/download
+
+Verify installation:
+
+```bash
+ollama --version
+```
+
+---
+
+# 🤖 Download the Gemma Model
+
+Study Buddy uses Google's Gemma model running locally through Ollama.
+
+Download the model:
+
+```bash
+ollama pull gemma
+```
+
+---
+
+# ▶ Start Ollama
+
+```bash
+ollama serve
+```
+
+Ollama will start on:
+
+```
+http://localhost:11434
+```
+
+Keep this terminal running while using Study Buddy.
+
+---
+
+# ⚙ Backend Setup
 
 ```bash
 cd backend
 
 python -m venv venv
+```
 
+Linux/macOS
+
+```bash
 source venv/bin/activate
+```
 
+Windows
+
+```powershell
+venv\Scripts\activate
+```
+
+Install dependencies
+
+```bash
 pip install -r requirements.txt
+```
 
-uvicorn main:app --reload
+Run the backend
+
+```bash
+uvicorn app.main:app --reload
+```
+
+Backend will run at:
+
+```
+http://localhost:8000
 ```
 
 ---
 
-## Frontend
+# 💻 Frontend Setup
 
 ```bash
 cd frontend
 
 npm install
+```
 
+Run Vite
+
+```bash
 npm run dev
 ```
 
----
+Frontend will run at
 
-## Environment Variables
-
-Backend:
-
-```env
-TOGETHER_API_KEY=your_api_key
+```
+http://localhost:5173
 ```
 
 ---
 
-## Current Features
+# 📄 Using the Application
 
-- PDF Upload
-- RAG Pipeline
-- Teacher Agent
-- Notes Agent
-- Quiz Agent
-- Planner Agent
-- Buddy Chatbot
-- Persistent Sidebar
-- Source Retrieval
-- Interactive Quiz
-- Day-wise Planner
+1. Start Ollama
+
+2. Start the FastAPI backend
+
+3. Start the React frontend
+
+4. Upload a PDF
+
+5. Use any of the AI agents:
+
+* Teacher
+* Notes
+* Quiz
+* Planner
+* Buddy
 
 ---
-Deployment - WIP
----
-Challenges - looking for free/cost effective deployment options as this project is resource hungry.
 
+# 📚 Learning Objectives
+
+This project demonstrates:
+
+* Retrieval-Augmented Generation (RAG)
+* FastAPI Backend Development
+* React Frontend Development
+* State Management
+* Local LLM Integration using Ollama
+* Vector Search using ChromaDB
+* AI Agent Design
+* REST API Development
+* Full Stack Application Architecture
+
+---
+
+# Deployment Plans - 
+
+* Looking for Cost Effective / free Options.
+
+# Notes: 
+
+* Runs with any LLM installed locally.
