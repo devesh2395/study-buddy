@@ -1,5 +1,5 @@
 from fastapi import APIRouter
-from pydantic import BaseModel
+from pydantic import BaseModel, Field
 
 from app.services.quiz_agent import (
     QuizAgent
@@ -13,6 +13,14 @@ agent = QuizAgent()
 class QuizRequest(BaseModel):
     topic: str
 
+    question_count: int = Field(
+        default=5,
+        ge=1,
+        le=20
+    )
+
+    difficulty: str = "Mixed"
+
 
 @router.post("/quiz")
 def generate_quiz(
@@ -20,9 +28,9 @@ def generate_quiz(
 ):
 
     quiz = agent.generate_quiz(
-        request.topic
+        topic=request.topic,
+        question_count=request.question_count,
+        difficulty=request.difficulty
     )
 
-    return {
-        "quiz": quiz
-    }
+    return quiz

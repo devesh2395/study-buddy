@@ -2,7 +2,7 @@ from fastapi import APIRouter
 from pydantic import BaseModel
 
 from app.services.planner_agent import (
-    PlannerAgent
+    PlannerAgent,
 )
 
 router = APIRouter()
@@ -17,14 +17,12 @@ class PlannerRequest(BaseModel):
 
 @router.post("/planner")
 def planner(
-    request: PlannerRequest
+    request: PlannerRequest,
 ):
 
     plan = agent.create_plan(
         topic=request.topic,
-        days=request.days
+        days=request.days,
     )
 
-    return {
-        "plan": plan
-    }
+    return plan

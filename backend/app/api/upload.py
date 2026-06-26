@@ -16,9 +16,10 @@ router = APIRouter()
 async def upload_document(
     file: UploadFile = File(...)
 ):
-    upload_path = Path(
-        settings.UPLOAD_DIR
-    ) / file.filename
+    upload_path = (
+        Path(settings.UPLOAD_DIR)
+        / file.filename
+    )
 
     contents = await file.read()
 
@@ -34,6 +35,7 @@ async def upload_document(
 
     return {
         "status": "success",
+        "message": "Document uploaded and indexed successfully.",
         "filename": file.filename,
         "saved_to": str(upload_path),
         "indexed": True,
