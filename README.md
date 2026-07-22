@@ -324,7 +324,3 @@ This project demonstrates:
 # Deployment Plans - 
 
 * Looking for Cost Effective / free Options.
-
-# Notes: 
-
-* Runs with any LLM installed locally.
